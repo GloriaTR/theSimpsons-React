@@ -1,0 +1,57 @@
+@font-face {
+  font-family: "Simpson";
+  src:
+    local("Simpsonfont"),
+    url("./fonts/Simpsonfont.ttf") format("truetype");
+}
+
+:root {
+  --font-characters: "Simpson";
+  --font-text: "Nunito Sans Variable", sans-serif;
+  --color-character-font: #205bfe;
+  --color-text-font: #000;
+  --color-primary: #f8b9c2;
+  --color-secondary: #ffc107;
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-text);
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+ul,
+li {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+button {
+  font: inherit;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
