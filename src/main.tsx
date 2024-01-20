@@ -6,12 +6,15 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "./components/App/App.tsx";
+import SimpsonsContextProvider from "./store/simpsons/context/SimpsonsContextProvider.tsx";
 import "./styles/styles.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <SimpsonsContextProvider>
+        <App />
+      </SimpsonsContextProvider>
     </BrowserRouter>
   </React.StrictMode>,
 );
