@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import SimpsonsContext from "../../store/simpsons/context/SimpsonsContext";
+import "./SimpsonsList.css";
 
 const SimpsonsList = (): React.ReactElement => {
   const { simpsons } = useContext(SimpsonsContext);
@@ -7,9 +8,7 @@ const SimpsonsList = (): React.ReactElement => {
   return (
     <ul className="simpsons-list">
       {simpsons.map((simpson) => (
-        <li key={simpson.id}>
-          <h3>{simpson.name}</h3>
-        </li>
+        <li key={simpson.id}></li>
       ))}
     </ul>
   );
