@@ -10,4 +10,5 @@ export interface SimpsonStructure {
 
 export interface SimpsonsContextStructure {
   simpsons: SimpsonStructure[];
+  loadSimpsons: () => void;
 }
