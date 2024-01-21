@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
+import SimpsonsContextProvider from "../../store/simpsons/context/SimpsonsContextProvider";
 
 describe("Given an App component", () => {
   describe("When is rendered", () => {
@@ -8,9 +9,11 @@ describe("Given an App component", () => {
       const expectedHeadingAltText = "The Simpsons title";
 
       render(
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>,
+        <SimpsonsContextProvider>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </SimpsonsContextProvider>,
       );
 
       const headingAltText = screen.getByAltText(expectedHeadingAltText);
