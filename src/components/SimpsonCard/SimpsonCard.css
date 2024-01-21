@@ -1,0 +1,33 @@
+.simpson-character {
+  width: 260px;
+  height: 300px;
+  border: 10px solid #ffc107;
+  border-radius: 20px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.simpson-character__name {
+  font-family: var(--font-characters);
+  color: var(--color-character-font);
+  font-size: 1.2rem;
+  margin: 15px 0;
+}
+
+.simpson-character__image {
+  width: auto;
+  height: 200px;
+}
+
+@media (width < 768px) {
+  .simpson-character {
+    width: 280px;
+    height: 320px;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .simpson-character__name {
+    margin: 20px 0;
+  }
+}
