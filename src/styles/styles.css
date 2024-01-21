@@ -60,3 +60,9 @@ img {
 a {
   text-decoration: none;
 }
+
+img {
+  width: 250px;
+  height: auto;
+  object-fit: cover;
+}

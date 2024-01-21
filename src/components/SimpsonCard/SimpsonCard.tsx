@@ -1,4 +1,5 @@
 import { SimpsonStructure } from "../../types";
+import "./SimpsonCard.css";
 
 interface SimpsonCardProps {
   simpson: SimpsonStructure;
@@ -14,8 +15,6 @@ const SimpsonCard = ({
         src={image}
         alt={`Full body of ${name}`}
         className="simpson-character__image"
-        width="250"
-        height="360"
       />
     </article>
   );
