@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import SimpsonsList from "./SimpsonsList";
-import { simpsonsMock } from "../mocks/simpsonsMocks";
+import { simpsonsMock } from "../../mocks/simpsonsMocks";
 import SimpsonsContext from "../../store/simpsons/context/SimpsonsContext";
 
 describe("Given a SimpsonList component", () => {

@@ -10,5 +10,13 @@ export interface SimpsonStructure {
 
 export interface SimpsonsContextStructure {
   simpsons: SimpsonStructure[];
-  loadSimpsons: () => void;
+  loadSimpsons: () => Promise<void>;
+}
+
+export interface SimpsonApi extends Omit<SimpsonStructure, "id"> {
+  _id: string;
+}
+
+export interface SimpsonsApi {
+  simpsons: SimpsonApi[];
 }
