@@ -1,4 +1,4 @@
-import { SimpsonStructure } from "../../types";
+import { SimpsonStructure } from "../types";
 
 export const simpsonsMock: SimpsonStructure[] = [
   {

@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import SimpsonCard from "./SimpsonCard";
-import { simpsonMock } from "../mocks/simpsonsMocks";
+import { simpsonMock } from "../../mocks/simpsonsMocks";
 
 describe("Given a SimpsonCard component", () => {
   describe("When is rendered", () => {
