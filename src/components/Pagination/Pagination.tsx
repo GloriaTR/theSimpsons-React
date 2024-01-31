@@ -5,6 +5,7 @@ import {
 } from "react-icons/io";
 import SimpsonsContext from "../../store/simpsons/context/SimpsonsContext";
 import Button from "../Button/Button";
+import "./Pagination.css";
 
 interface PaginationProps {
   currentPage: number;
@@ -31,35 +32,33 @@ const Pagination = ({
 
   return (
     <div className="pagination">
-      <div className="pagination-previous">
-        <Button
-          className="button"
-          actionOnClick={previousPage}
-          disabled={currentPage === 0}
-        >
-          <IoIosArrowDropleftCircle
-            className="icon-previous"
-            aria-label="Pagination previous button"
-          />
-        </Button>
-      </div>
+      <Button
+        className="button button--solid"
+        actionOnClick={previousPage}
+        disabled={currentPage === 0}
+      >
+        <IoIosArrowDropleftCircle
+          className="icon-previous"
+          aria-label="Pagination previous button"
+        />
+      </Button>
+
       {simpsons.length !== 0 && (
         <span className="pagination-count">
           {currentRangeStart} - {currentRangeEnd} / {totalSimpsons}
         </span>
       )}
-      <div className="pagination-next">
-        <Button
-          className="button"
-          actionOnClick={nextPage}
-          disabled={isLastPage}
-        >
-          <IoIosArrowDroprightCircle
-            className="icon-next"
-            aria-label="Pagination next button"
-          />
-        </Button>
-      </div>
+
+      <Button
+        className="button button--solid"
+        actionOnClick={nextPage}
+        disabled={isLastPage}
+      >
+        <IoIosArrowDroprightCircle
+          className="icon-next"
+          aria-label="Pagination next button"
+        />
+      </Button>
     </div>
   );
 };
