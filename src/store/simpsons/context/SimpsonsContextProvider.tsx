@@ -7,18 +7,27 @@ const SimpsonsContextProvider = ({
   children,
 }: PropsWithChildren): React.ReactElement => {
   const [simpsons, setSimpsons] = useState<SimpsonStructure[]>([]);
+  const [totalSimpsons, setTotalSimpsons] = useState<number>(0);
 
   const { getSimpsons } = useSimpsonsApi();
 
-  const loadSimpsons = useCallback(async () => {
-    const originSimpsons = await getSimpsons();
+  const loadSimpsons = useCallback(
+    async ({ skip, limit }: { skip: number; limit: number }): Promise<void> => {
+      const { simpsons, totalSimpsons } = await getSimpsons({ skip, limit });
 
-    setSimpsons([...originSimpsons]);
-  }, [getSimpsons]);
+      setSimpsons([...simpsons]);
+      setTotalSimpsons(totalSimpsons);
+    },
+    [getSimpsons],
+  );
 
   const simpsonsContextValue = useMemo(
-    (): SimpsonsContextStructure => ({ loadSimpsons, simpsons }),
-    [simpsons, loadSimpsons],
+    (): SimpsonsContextStructure => ({
+      loadSimpsons,
+      simpsons,
+      totalSimpsons,
+    }),
+    [simpsons, loadSimpsons, totalSimpsons],
   );
 
   return (

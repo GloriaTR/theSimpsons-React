@@ -10,7 +10,8 @@ export interface SimpsonStructure {
 
 export interface SimpsonsContextStructure {
   simpsons: SimpsonStructure[];
-  loadSimpsons: () => Promise<void>;
+  totalSimpsons: number;
+  loadSimpsons: (params: { skip: number; limit: number }) => Promise<void>;
 }
 
 export interface SimpsonApi extends Omit<SimpsonStructure, "id"> {
