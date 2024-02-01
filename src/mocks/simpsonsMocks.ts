@@ -62,4 +62,5 @@ export const simpsonsApiMock: SimpsonsApi = {
       occupation: "Empresario CEO y presidente de Powell Motor Company",
     },
   ],
+  totalSimpsons: simpsonsMock.length,
 };

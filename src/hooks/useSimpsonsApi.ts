@@ -5,23 +5,32 @@ import { SimpsonApi, SimpsonStructure } from "../types";
 const useSimpsonsApi = () => {
   const apiUrl = import.meta.env.VITE_API_URL;
 
-  const getSimpsons = useCallback(async () => {
-    try {
-      const { data: apiSimpsons } = await axios.get<{ simpsons: SimpsonApi[] }>(
-        `${apiUrl}/simpsons`,
-      );
+  interface Params {
+    skip: number;
+    limit: number;
+  }
 
-      const simpsons = apiSimpsons.simpsons.map<SimpsonStructure>(
-        ({ _id, ...simpsons }) => ({
-          ...simpsons,
-          id: _id,
-        }),
-      );
-      return simpsons;
-    } catch {
-      throw new Error("Couldn't load Simpsons characters");
-    }
-  }, [apiUrl]);
+  const getSimpsons = useCallback(
+    async ({ skip, limit }: Params) => {
+      try {
+        const { data: apiSimpsons } = await axios.get<{
+          simpsons: SimpsonApi[];
+          totalSimpsons: number;
+        }>(`${apiUrl}/simpsons/?limit=${limit}&skip=${skip}`);
+
+        const simpsons = apiSimpsons.simpsons.map<SimpsonStructure>(
+          ({ _id, ...simpsons }) => ({
+            ...simpsons,
+            id: _id,
+          }),
+        );
+        return { simpsons, totalSimpsons: apiSimpsons.totalSimpsons };
+      } catch {
+        throw new Error("Couldn't load Simpsons characters");
+      }
+    },
+    [apiUrl],
+  );
 
   return { getSimpsons };
 };

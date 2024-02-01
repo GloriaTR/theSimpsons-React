@@ -7,7 +7,10 @@ import { errorHandlers } from "../mocks/handlers";
 describe("Given a getSimpsons function", () => {
   describe("When is called", () => {
     test("Then it should return a list of The Simpsons characters when resolving successfully", async () => {
-      const expectedSimpsonscharacters = simpsonsMock;
+      const expectedSimpsonscharacters = {
+        simpsons: simpsonsMock,
+        totalSimpsons: simpsonsMock.length,
+      };
 
       const {
         result: {
@@ -15,7 +18,7 @@ describe("Given a getSimpsons function", () => {
         },
       } = renderHook(() => useSimpsonsApi());
 
-      const simpsonsList = await getSimpsons();
+      const simpsonsList = await getSimpsons({ skip: 0, limit: 10 });
 
       expect(simpsonsList).toStrictEqual(expectedSimpsonscharacters);
     });
@@ -31,7 +34,7 @@ describe("Given a getSimpsons function", () => {
         },
       } = renderHook(() => useSimpsonsApi());
 
-      const simpsonsList = getSimpsons();
+      const simpsonsList = getSimpsons({ skip: 0, limit: 10 });
 
       expect(simpsonsList).rejects.toThrowError(expectedError);
     });
