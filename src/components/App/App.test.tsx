@@ -5,9 +5,7 @@ import SimpsonsContextProvider from "../../store/simpsons/context/SimpsonsContex
 
 describe("Given an App component", () => {
   describe("When is rendered", () => {
-    test("Then it should show an image as the title of the page with the alt text 'The Simpsons title'", () => {
-      const expectedHeadingAltText = "The Simpsons title";
-
+    test("Then it should show the title 'The Simpsons Crew'", () => {
       render(
         <SimpsonsContextProvider>
           <BrowserRouter>
@@ -16,9 +14,11 @@ describe("Given an App component", () => {
         </SimpsonsContextProvider>,
       );
 
-      const headingAltText = screen.getByAltText(expectedHeadingAltText);
+      const headingText = screen.getByRole("heading", {
+        level: 1,
+      });
 
-      expect(headingAltText).toBeInTheDocument();
+      expect(headingText).toBeInTheDocument();
     });
   });
 });
