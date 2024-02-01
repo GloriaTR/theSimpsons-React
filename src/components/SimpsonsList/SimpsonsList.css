@@ -1,12 +1,11 @@
 .simpsons-list {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(2, 300px);
-  justify-items: center;
-  gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
 }
 
-@media (width < 768px) {
+@media (width < 530px) {
   .simpsons-list {
     display: flex;
     flex-direction: column;

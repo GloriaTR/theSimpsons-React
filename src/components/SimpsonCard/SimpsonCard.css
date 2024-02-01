@@ -1,33 +1,35 @@
 .simpson-character {
-  width: 260px;
-  height: 300px;
+  width: 220px;
+  height: 220px;
   border: 10px solid #ffc107;
   border-radius: 20px;
   overflow: hidden;
   text-align: center;
+  padding: 10px 10px 0 10px;
 }
 
 .simpson-character__name {
   font-family: var(--font-characters);
   color: var(--color-character-font);
-  font-size: 1.2rem;
-  margin: 15px 0;
+  font-size: 1rem;
+  margin-bottom: 5px;
 }
 
 .simpson-character__image {
-  width: auto;
-  height: 200px;
+  width: 60%;
+  height: 80%;
+  object-fit: contain;
 }
 
-@media (width < 768px) {
+@media (width < 530px) {
   .simpson-character {
     width: 280px;
-    height: 320px;
+    height: 300px;
     overflow: hidden;
     text-align: center;
   }
 
   .simpson-character__name {
-    margin: 20px 0;
+    margin-bottom: 20px;
   }
 }

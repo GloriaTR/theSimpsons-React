@@ -54,12 +54,6 @@ button {
   padding: 0;
 }
 
-img {
-  width: 250px;
-  height: auto;
-  object-fit: cover;
-}
-
 a {
   text-decoration: none;
 }
