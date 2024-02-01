@@ -1,9 +1,18 @@
-.header-container {
+.header {
+  font-family: var(--font-characters);
+  color: var(--color-secondary);
+  text-shadow:
+    -1.5px -1.5px 0 #000000,
+    3px 3px 0 #000000,
+    0 3px 3px #000000;
   text-align: center;
+  font-size: 3rem;
+  letter-spacing: 0.2rem;
+  margin-bottom: 50px;
 }
 
 @media (width < 768px) {
-  .header-container {
-    text-align: center;
+  .header {
+    font-size: 2.4rem;
   }
 }

@@ -5,18 +5,18 @@ import userEvent from "@testing-library/user-event";
 
 describe("Given a HomePage component", () => {
   describe("When is rendered", () => {
-    test("Then it should show an image as the title of the page with the alt text 'The Simpsons title'", () => {
-      const expectedHeadingAltText = "The Simpsons title";
-
+    test("Then it should show the title 'The Simpsons Crew'", () => {
       render(
         <SimpsonsContextProvider>
           <HomePage />
         </SimpsonsContextProvider>,
       );
 
-      const headingAltText = screen.getByAltText(expectedHeadingAltText);
+      const headingText = screen.getByRole("heading", {
+        level: 1,
+      });
 
-      expect(headingAltText).toBeInTheDocument();
+      expect(headingText).toBeInTheDocument();
     });
 
     test("Then it should show two buttons", () => {

@@ -3,14 +3,16 @@ import Header from "./Header";
 
 describe("Given a Header component", () => {
   describe("When is rendered", () => {
-    test("Then it should show an image as the title of the page with the alt text 'The Simpsons title'", () => {
-      const expectedHeadingAltText = "The Simpsons title";
+    test("Then it should show the title 'The Simpsons Crew'", () => {
+      const expectedHeadingText = "The Simpsons Crew";
 
       render(<Header />);
 
-      const headingAltText = screen.getByAltText(expectedHeadingAltText);
+      const headingText = screen.getByRole("heading", {
+        name: expectedHeadingText,
+      });
 
-      expect(headingAltText).toBeInTheDocument();
+      expect(headingText).toBeInTheDocument();
     });
   });
 });
