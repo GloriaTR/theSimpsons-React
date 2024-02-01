@@ -20,4 +20,5 @@ export interface SimpsonApi extends Omit<SimpsonStructure, "id"> {
 
 export interface SimpsonsApi {
   simpsons: SimpsonApi[];
+  totalSimpsons: number;
 }

@@ -9,6 +9,7 @@ describe("Given a SimpsonList component", () => {
       const initialState = {
         simpsons: simpsonsMock,
         loadSimpsons: vi.fn(),
+        totalSimpsons: simpsonsMock.length,
       };
 
       render(

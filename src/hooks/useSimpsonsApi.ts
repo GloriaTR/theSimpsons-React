@@ -5,13 +5,13 @@ import { SimpsonApi, SimpsonStructure } from "../types";
 const useSimpsonsApi = () => {
   const apiUrl = import.meta.env.VITE_API_URL;
 
-  interface params {
+  interface Params {
     skip: number;
     limit: number;
   }
 
   const getSimpsons = useCallback(
-    async ({ skip, limit }: params) => {
+    async ({ skip, limit }: Params) => {
       try {
         const { data: apiSimpsons } = await axios.get<{
           simpsons: SimpsonApi[];
