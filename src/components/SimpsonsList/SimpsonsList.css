@@ -3,13 +3,17 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 30px;
+  margin-bottom: 100px;
+  padding: 0 50px;
 }
 
-@media (width < 530px) {
+@media (width < 586px) {
   .simpsons-list {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 30px;
+    padding: 0;
+    margin-bottom: 50px;
   }
 }
