@@ -2,15 +2,22 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin: 50px 0 30px;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  background-color: var(--color-secondary);
+  width: 100%;
+  height: 70px;
 }
 
 .icon-previous,
 .icon-next {
   width: 40px;
   height: 40px;
+  border-radius: 50%;
 
-  &:hover {
+  &:hover,
+  &:active {
     color: #808080;
     background-color: var(--color-primary);
   }
@@ -32,35 +39,25 @@
   justify-content: center;
   align-items: center;
   height: 50px;
-  width: 75px;
+  width: 50px;
   background-color: var(--color-secondary);
-  border-radius: 8px;
+  border-radius: 50%;
   transition: all ease-out;
 
-  &:hover {
+  &:hover,
+  &:active {
     border: 3px solid #000;
     background-color: var(--color-primary);
   }
 }
 
-@media (width < 768px) {
-  .icon-previous:hover,
-  .icon-next:hover {
-    color: #000;
-    background-color: var(--color-secondary);
-  }
-
-  .button--solid {
-    height: 50px;
-    width: 60px;
-
-    &:hover {
-      background-color: var(--color-secondary);
-      border: transparent;
-    }
+@media (width < 586px) {
+  .pagination {
+    position: static;
+    background-color: transparent;
   }
 
   .pagination-count {
-    padding: 0 10px;
+    font-size: 1.1rem;
   }
 }

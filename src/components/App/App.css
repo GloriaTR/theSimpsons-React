@@ -3,10 +3,10 @@
   flex-direction: column;
   max-width: 100%;
   min-height: 100vh;
-  padding: 20px 50px;
+  padding-top: 20px;
 }
 
-@media (width < 768px) {
+@media (width < 530px) {
   .main-container {
     padding: 20px;
   }
