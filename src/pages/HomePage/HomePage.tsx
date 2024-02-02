@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react";
-import SimpsonsContext from "../store/simpsons/context/SimpsonsContext";
-import Header from "../components/Header/Header";
-import SimpsonsList from "../components/SimpsonsList/SimpsonsList";
-import Pagination from "../components/Pagination/Pagination";
+import SimpsonsContext from "../../store/simpsons/context/SimpsonsContext";
+import Header from "../../components/Header/Header";
+import SimpsonsList from "../../components/SimpsonsList/SimpsonsList";
+import Pagination from "../../components/Pagination/Pagination";
 
 const HomePage = (): React.ReactElement => {
   const { loadSimpsons } = useContext(SimpsonsContext);

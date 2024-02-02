@@ -1,9 +1,17 @@
 import { HttpResponse, http } from "msw";
-import { simpsonsApiMock } from "./simpsonsMocks";
+import {
+  simpsonApiMock,
+  simpsonIdMock,
+  simpsonsApiMock,
+} from "./simpsonsMocks";
 
 export const handlers = [
   http.get(`${import.meta.env.VITE_API_URL}/simpsons`, () => {
     return HttpResponse.json(simpsonsApiMock);
+  }),
+
+  http.get(`${import.meta.env.VITE_API_URL}/simpsons/${simpsonIdMock}`, () => {
+    return HttpResponse.json({ simpson: simpsonApiMock });
   }),
 ];
 
@@ -12,6 +20,13 @@ export const errorHandlers = [
     return new HttpResponse(null, {
       status: 404,
       statusText: "Couldn't load Simpsons characters",
+    });
+  }),
+
+  http.get(`${import.meta.env.VITE_API_URL}/simpsons/${simpsonIdMock}`, () => {
+    return new HttpResponse(null, {
+      status: 404,
+      statusText: "Couldn't load the Simpson character",
     });
   }),
 ];
