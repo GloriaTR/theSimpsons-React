@@ -1,6 +1,6 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import HomePage from "./HomePage";
-import SimpsonsContextProvider from "../store/simpsons/context/SimpsonsContextProvider";
+import SimpsonsContextProvider from "../../store/simpsons/context/SimpsonsContextProvider";
 import userEvent from "@testing-library/user-event";
 
 describe("Given a HomePage component", () => {

@@ -32,7 +32,28 @@ const useSimpsonsApi = () => {
     [apiUrl],
   );
 
-  return { getSimpsons };
+  const getSimpsonById = useCallback(
+    async (id: string) => {
+      try {
+        const { data: apiSimpson } = await axios.get(
+          `${apiUrl}/simpsons/${id}`,
+        );
+
+        const simpson = {
+          ...apiSimpson.simpson,
+          id: apiSimpson.simpson._id,
+        };
+        delete simpson._id;
+
+        return simpson;
+      } catch {
+        throw new Error("Couldn't load the Simpson character");
+      }
+    },
+    [apiUrl],
+  );
+
+  return { getSimpsons, getSimpsonById };
 };
 
 export default useSimpsonsApi;
