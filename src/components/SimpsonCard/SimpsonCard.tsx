@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import { SimpsonStructure } from "../../types";
 import "./SimpsonCard.css";
 
@@ -6,17 +7,19 @@ interface SimpsonCardProps {
 }
 
 const SimpsonCard = ({
-  simpson: { name, image },
+  simpson: { id, name, image },
 }: SimpsonCardProps): React.ReactElement => {
   return (
-    <article className="simpson-character">
-      <h2 className="simpson-character__name">{name}</h2>
-      <img
-        src={image}
-        alt={`Full body of ${name}`}
-        className="simpson-character__image"
-      />
-    </article>
+    <NavLink to={`/${id}`}>
+      <article className="simpson-character">
+        <h3 className="simpson-character__name">{name}</h3>
+        <img
+          src={image}
+          alt={`Full body of ${name}`}
+          className="simpson-character__image"
+        />
+      </article>
+    </NavLink>
   );
 };
 

@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import HomePage from "../../pages/HomePage/HomePage";
+import DetailPage from "../../pages/DetailPage/DetailPage";
 import "./App.css";
 
 const App = (): React.ReactElement => {
@@ -8,6 +9,7 @@ const App = (): React.ReactElement => {
     <div className="main-container">
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/:id" element={<DetailPage />} />
       </Routes>
     </div>
   );
