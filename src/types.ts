@@ -13,7 +13,7 @@ export interface SimpsonsContextStructure {
   totalSimpsons: number;
   loadSimpsons: (params: { skip: number; limit: number }) => Promise<void>;
   selectedSimpson?: SimpsonStructure;
-  loadSelectedSimpson?: (id: string) => Promise<void>;
+  loadSelectedSimpson: (id: string) => Promise<void>;
 }
 
 export interface SimpsonApi extends Omit<SimpsonStructure, "id"> {

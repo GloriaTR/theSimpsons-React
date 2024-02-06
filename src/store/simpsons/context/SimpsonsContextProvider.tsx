@@ -26,7 +26,7 @@ const SimpsonsContextProvider = ({
 
   const loadSelectedSimpson = useCallback(
     async (id: string): Promise<void> => {
-      const { simpson } = await getSimpsonById(id);
+      const simpson = await getSimpsonById(id);
       setSelectedSimpson(simpson);
     },
     [getSimpsonById],

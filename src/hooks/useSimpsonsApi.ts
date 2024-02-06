@@ -35,15 +35,15 @@ const useSimpsonsApi = () => {
   const getSimpsonById = useCallback(
     async (id: string) => {
       try {
-        const { data: apiSimpson } = await axios.get(
+        const { data: apiSimpson } = await axios.get<{ simpson: SimpsonApi }>(
           `${apiUrl}/simpsons/${id}`,
         );
 
-        const simpson = {
-          ...apiSimpson.simpson,
-          id: apiSimpson.simpson._id,
+        const { _id, ...simpsonWithoutId } = apiSimpson.simpson;
+        const simpson: SimpsonStructure = {
+          ...simpsonWithoutId,
+          id: _id,
         };
-        delete simpson._id;
 
         return simpson;
       } catch {

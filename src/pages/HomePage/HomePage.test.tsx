@@ -1,14 +1,17 @@
 import { render, screen, waitFor } from "@testing-library/react";
+import { BrowserRouter } from "react-router-dom";
+import userEvent from "@testing-library/user-event";
 import HomePage from "./HomePage";
 import SimpsonsContextProvider from "../../store/simpsons/context/SimpsonsContextProvider";
-import userEvent from "@testing-library/user-event";
 
 describe("Given a HomePage component", () => {
   describe("When is rendered", () => {
     test("Then it should show the title 'The Simpsons Crew'", () => {
       render(
         <SimpsonsContextProvider>
-          <HomePage />
+          <BrowserRouter>
+            <HomePage />
+          </BrowserRouter>
         </SimpsonsContextProvider>,
       );
 
@@ -24,7 +27,9 @@ describe("Given a HomePage component", () => {
 
       render(
         <SimpsonsContextProvider>
-          <HomePage />,
+          <BrowserRouter>
+            <HomePage />,
+          </BrowserRouter>
         </SimpsonsContextProvider>,
       );
 
@@ -40,7 +45,9 @@ describe("Given a HomePage component", () => {
 
       render(
         <SimpsonsContextProvider>
-          <HomePage />,
+          <BrowserRouter>
+            <HomePage />,
+          </BrowserRouter>
         </SimpsonsContextProvider>,
       );
 
@@ -58,7 +65,9 @@ describe("Given a HomePage component", () => {
 
       render(
         <SimpsonsContextProvider>
-          <HomePage />,
+          <BrowserRouter>
+            <HomePage />,
+          </BrowserRouter>
         </SimpsonsContextProvider>,
       );
 

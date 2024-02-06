@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import { BrowserRouter } from "react-router-dom";
 import SimpsonsList from "./SimpsonsList";
 import { simpsonsMock } from "../../mocks/simpsonsMocks";
 import SimpsonsContext from "../../store/simpsons/context/SimpsonsContext";
@@ -10,11 +11,14 @@ describe("Given a SimpsonList component", () => {
         simpsons: simpsonsMock,
         loadSimpsons: vi.fn(),
         totalSimpsons: simpsonsMock.length,
+        loadSelectedSimpson: vi.fn(),
       };
 
       render(
         <SimpsonsContext.Provider value={initialState}>
-          <SimpsonsList />
+          <BrowserRouter>
+            <SimpsonsList />
+          </BrowserRouter>
         </SimpsonsContext.Provider>,
       );
 
