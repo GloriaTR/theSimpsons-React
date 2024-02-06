@@ -16,29 +16,29 @@ const DetailPage = (): React.ReactElement => {
 
   return (
     <div className="detail">
-      <h2 className="detail__name">{selectedSimpson.name}</h2>
+      <h2 className="detail__name">{selectedSimpson?.name}</h2>
       <div className="detail__image">
         <img
           src={selectedSimpson?.image}
-          alt={`Close-up of ${selectedSimpson.name}`}
+          alt={`Close-up of ${selectedSimpson?.name}`}
         />
       </div>
       <div className="detail-description">
         <div>
           <span className="detail-description__background">Description:</span>
-          <span> {selectedSimpson.background}</span>
+          <span> {selectedSimpson?.background}</span>
         </div>
         <div>
           <span className="detail-description__gender">Gender:</span>
-          <span> {selectedSimpson.gender}</span>
+          <span> {selectedSimpson?.gender}</span>
         </div>
         <div>
           <span className="detail-description__occupation">Occupation:</span>
-          <span> {selectedSimpson.occupation}</span>
+          <span> {selectedSimpson?.occupation}</span>
         </div>
         <div>
           <span className="detail-description__status">Status:</span>
-          <span> {selectedSimpson.status}</span>
+          <span> {selectedSimpson?.status}</span>
         </div>
       </div>
     </div>

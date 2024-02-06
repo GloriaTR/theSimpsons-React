@@ -11,7 +11,12 @@ describe("Given a Simpsons page", () => {
       cy.findByRole("button", { name: /Pagination next button/i }).click();
 
       cy.findByRole("heading", { name: /Dolph/i }).should("exist");
-      cy.findByText(/11 - 20 \/ 643/i).should("exist");
+      cy.findByText(/11 - 20 \/ 638/i).should("exist");
+
+      cy.findByRole("link", { name: /Dolph/i }).click();
+      cy.findByText(
+        /Dolphin Dolph Shapiro is one of the bullies at Springfield Elementary School./i,
+      ).should("exist");
     });
   });
 });

@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
+import { BrowserRouter } from "react-router-dom";
 import SimpsonsList from "./SimpsonsList";
 import { simpsonsMock } from "../../mocks/simpsonsMocks";
 import SimpsonsContext from "../../store/simpsons/context/SimpsonsContext";
-import { BrowserRouter } from "react-router-dom";
 
 describe("Given a SimpsonList component", () => {
   describe("When is rendered with the list of simpsons characters 'Marge Simpson' and 'Herb Powell'", () => {
@@ -11,6 +11,7 @@ describe("Given a SimpsonList component", () => {
         simpsons: simpsonsMock,
         loadSimpsons: vi.fn(),
         totalSimpsons: simpsonsMock.length,
+        loadSelectedSimpson: vi.fn(),
       };
 
       render(

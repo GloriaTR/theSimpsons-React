@@ -1,8 +1,8 @@
 import { render, screen, waitFor } from "@testing-library/react";
+import { BrowserRouter } from "react-router-dom";
+import userEvent from "@testing-library/user-event";
 import HomePage from "./HomePage";
 import SimpsonsContextProvider from "../../store/simpsons/context/SimpsonsContextProvider";
-import userEvent from "@testing-library/user-event";
-import { BrowserRouter } from "react-router-dom";
 
 describe("Given a HomePage component", () => {
   describe("When is rendered", () => {
