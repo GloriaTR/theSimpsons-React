@@ -33,7 +33,9 @@ const Pagination = ({
   return (
     <div className="pagination">
       <Button
-        className="button button--solid"
+        className={`button button--solid ${
+          currentPage === 0 ? "disabled" : ""
+        }`}
         actionOnClick={previousPage}
         disabled={currentPage === 0}
       >
@@ -50,7 +52,7 @@ const Pagination = ({
       )}
 
       <Button
-        className="button button--solid"
+        className={`button button--solid ${isLastPage ? "disabled" : ""}`}
         actionOnClick={nextPage}
         disabled={isLastPage}
       >

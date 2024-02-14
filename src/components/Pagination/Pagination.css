@@ -44,8 +44,11 @@
   border-radius: 50%;
   transition: all ease-out;
 
-  &:hover,
-  &:active {
+  &.disabled {
+    pointer-events: none;
+  }
+  &:not(.disabled):hover,
+  &:not(.disabled):active {
     border: 3px solid #000;
     background-color: var(--color-primary);
   }
