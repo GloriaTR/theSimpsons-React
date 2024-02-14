@@ -1,11 +1,17 @@
 .simpson-character {
   width: 220px;
   height: 220px;
-  border: 10px solid #ffc107;
+  border: 10px solid var(--color-secondary);
   border-radius: 20px;
-  overflow: hidden;
   text-align: center;
   padding: 10px 10px 0 10px;
+  transition: border-color 0.5s;
+
+  &:hover {
+    border-color: var(--color-character-font);
+    filter: brightness(85%);
+    transform: scale(1.2);
+  }
 }
 
 .simpson-character__name {
