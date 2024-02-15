@@ -7,6 +7,7 @@ import {
 import useSimpsonsApi from "./useSimpsonsApi";
 import { server } from "../mocks/server";
 import { errorHandlers } from "../mocks/handlers";
+import UiContextProvider from "../store/ui/context/UiContextProvider";
 
 describe("Given a getSimpsons function", () => {
   describe("When is called", () => {
@@ -20,7 +21,9 @@ describe("Given a getSimpsons function", () => {
         result: {
           current: { getSimpsons },
         },
-      } = renderHook(() => useSimpsonsApi());
+      } = renderHook(() => useSimpsonsApi(), {
+        wrapper: UiContextProvider,
+      });
 
       const simpsonsList = await getSimpsons({ skip: 0, limit: 10 });
 
@@ -36,7 +39,9 @@ describe("Given a getSimpsons function", () => {
         result: {
           current: { getSimpsons },
         },
-      } = renderHook(() => useSimpsonsApi());
+      } = renderHook(() => useSimpsonsApi(), {
+        wrapper: UiContextProvider,
+      });
 
       const simpsonsList = getSimpsons({ skip: 0, limit: 10 });
 
@@ -54,7 +59,9 @@ describe("Given a getSimpsonById function", () => {
         result: {
           current: { getSimpsonById },
         },
-      } = renderHook(() => useSimpsonsApi());
+      } = renderHook(() => useSimpsonsApi(), {
+        wrapper: UiContextProvider,
+      });
 
       const simpsonCharacter = await getSimpsonById(simpsonIdMock);
 
@@ -70,7 +77,9 @@ describe("Given a getSimpsonById function", () => {
         result: {
           current: { getSimpsonById },
         },
-      } = renderHook(() => useSimpsonsApi());
+      } = renderHook(() => useSimpsonsApi(), {
+        wrapper: UiContextProvider,
+      });
 
       const simpsonCharacter = getSimpsonById(simpsonIdMock);
 

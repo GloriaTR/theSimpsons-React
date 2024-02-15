@@ -5,16 +5,19 @@ import SimpsonsContextProvider from "../../store/simpsons/context/SimpsonsContex
 import { simpsonMock, simpsonsMock } from "../../mocks/simpsonsMocks";
 import SimpsonsContext from "../../store/simpsons/context/SimpsonsContext";
 import userEvent from "@testing-library/user-event";
+import UiContextProvider from "../../store/ui/context/UiContextProvider";
 
 describe("Given an App component", () => {
   describe("When is rendered", () => {
     test("Then it should show the title 'The Simpsons Crew'", () => {
       render(
-        <SimpsonsContextProvider>
-          <BrowserRouter>
-            <App />
-          </BrowserRouter>
-        </SimpsonsContextProvider>,
+        <UiContextProvider>
+          <SimpsonsContextProvider>
+            <BrowserRouter>
+              <App />
+            </BrowserRouter>
+          </SimpsonsContextProvider>
+        </UiContextProvider>,
       );
 
       const headingText = screen.getByRole("heading", {
@@ -38,11 +41,13 @@ describe("Given an App component", () => {
       const expectedSimpsonDescription = simpsonMock.occupation;
 
       render(
-        <SimpsonsContext.Provider value={initialState}>
-          <BrowserRouter>
-            <App />
-          </BrowserRouter>
-        </SimpsonsContext.Provider>,
+        <UiContextProvider>
+          <SimpsonsContext.Provider value={initialState}>
+            <BrowserRouter>
+              <App />
+            </BrowserRouter>
+          </SimpsonsContext.Provider>
+        </UiContextProvider>,
       );
 
       const link = await screen.findAllByRole("link");

@@ -7,14 +7,17 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "./components/App/App.tsx";
 import SimpsonsContextProvider from "./store/simpsons/context/SimpsonsContextProvider.tsx";
+import UiContextProvider from "./store/ui/context/UiContextProvider.tsx";
 import "./styles/styles.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <UiContextProvider>
       <SimpsonsContextProvider>
-        <App />
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
       </SimpsonsContextProvider>
-    </BrowserRouter>
+    </UiContextProvider>
   </React.StrictMode>,
 );
