@@ -1,9 +1,12 @@
-import { useCallback } from "react";
+import { useCallback, useContext } from "react";
 import axios from "axios";
 import { SimpsonApi, SimpsonStructure } from "../types";
+import UiContext from "../store/ui/context/UiContext";
 
 const useSimpsonsApi = () => {
   const apiUrl = import.meta.env.VITE_API_URL;
+
+  const { startLoading, stopLoading } = useContext(UiContext);
 
   interface Params {
     skip: number;
@@ -12,6 +15,8 @@ const useSimpsonsApi = () => {
 
   const getSimpsons = useCallback(
     async ({ skip, limit }: Params) => {
+      startLoading();
+
       try {
         const { data: apiSimpsons } = await axios.get<{
           simpsons: SimpsonApi[];
@@ -24,16 +29,22 @@ const useSimpsonsApi = () => {
             id: _id,
           }),
         );
+
+        stopLoading();
+
         return { simpsons, totalSimpsons: apiSimpsons.totalSimpsons };
       } catch {
+        stopLoading();
         throw new Error("Couldn't load Simpsons characters");
       }
     },
-    [apiUrl],
+    [apiUrl, startLoading, stopLoading],
   );
 
   const getSimpsonById = useCallback(
     async (id: string) => {
+      startLoading();
+
       try {
         const { data: apiSimpson } = await axios.get<{ simpson: SimpsonApi }>(
           `${apiUrl}/simpsons/${id}`,
@@ -45,12 +56,15 @@ const useSimpsonsApi = () => {
           id: _id,
         };
 
+        stopLoading();
+
         return simpson;
       } catch {
+        stopLoading();
         throw new Error("Couldn't load the Simpson character");
       }
     },
-    [apiUrl],
+    [apiUrl, startLoading, stopLoading],
   );
 
   return { getSimpsons, getSimpsonById };

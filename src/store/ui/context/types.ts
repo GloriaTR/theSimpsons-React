@@ -1,1 +1,5 @@
-export interface UiContextStructure {}
+export interface UiContextStructure {
+  isLoading: boolean;
+  startLoading: () => void;
+  stopLoading: () => void;
+}
